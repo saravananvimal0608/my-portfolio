@@ -177,22 +177,18 @@ function ExperienceCard({ exp, index }) {
         </div>
       </motion.div>
 
-      {/* Timeline node */}
-      <div className="flex-shrink-0 flex flex-col items-center" style={{ width: 40 }}>
+      {/* Timeline node — hidden on mobile */}
+      <div className="hidden md:flex flex-shrink-0 flex-col items-center" style={{ width: 40 }}>
         <motion.div
           initial={{ scale: 0 }}
           animate={inView ? { scale: 1 } : {}}
           transition={{ delay: index * 0.15 + 0.2, type: 'spring', bounce: 0.5 }}
           className="relative"
         >
-          {/* Pulse ring */}
           <motion.div
             animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.5 }}
-            style={{
-              position: 'absolute', inset: -4, borderRadius: '50%',
-              border: `2px solid ${exp.color}`,
-            }}
+            style={{ position: 'absolute', inset: -4, borderRadius: '50%', border: `2px solid ${exp.color}` }}
           />
           <div
             className="w-10 h-10 rounded-full flex items-center justify-center text-lg font-black z-10 relative"
